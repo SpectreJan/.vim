@@ -47,3 +47,7 @@ set omnifunc=syntaxcomplete#Complete
 let g:indentLine_color_term = 240
 
 nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
+" CTAGS stuff
+map <C-\> :tab split<CR>:exec("tselect ".expand("<cword>"))<CR>
+map g<C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
