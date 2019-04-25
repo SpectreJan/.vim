@@ -4,6 +4,7 @@ execute pathogen#infect()
 set autoindent
 filetype on
 filetype indent on
+syntax on
 
 " Set Indentation
 set shiftwidth=4
@@ -23,7 +24,7 @@ set number
 highlight LineNr ctermfg=darkgrey guifg=darkgrey
 
 " Set clang_complete
-let g:clang_library_path='/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
+" let g:clang_library_path='/usr/lib/libclang.so'
 
 " autohighlight leading/trailing whitespaces
 highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
