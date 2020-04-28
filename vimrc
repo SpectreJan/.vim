@@ -2,6 +2,7 @@ execute pathogen#infect()
 
 " Set Indent
 set autoindent
+filetype plugin on
 filetype on
 filetype indent on
 syntax on
@@ -10,6 +11,18 @@ syntax on
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+" Config vim-lsp
+augroup lsp_clangd
+	au!
+	autocmd User lsp_setup call lsp#register_server({
+		\ 'name': 'clangd',
+		\ 'cmd': {server_info->['clangd']},
+		\ 'whitelist': ['c', 'cpp', 'cxx', 'cc'],
+		\ })
+	autocmd FileType cpp setlocal omnifunc=lsp#complete
+	autocmd Filetype cpp setlocal signcolumn=yes
+augroup end
 
 " config search
 set nohlsearch
@@ -41,7 +54,6 @@ set term=screen-256color
 colors darkspectrum
 
 " Omnicomplete
-filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Show Indent with color
